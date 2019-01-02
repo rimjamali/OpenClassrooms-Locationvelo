@@ -1,23 +1,22 @@
 # OpenClassrooms-Locationvelo
-Student project from the school OpenClassrooms.com 
+Student project from openclassrooms.com 
 
-------------- In English --------------------------- 
+---- In English -----
 Title :  Developer in Creation of Web
 Applications
 
 Project 3 : 
 
-Front-End development : Single page application for
-city-bikes reservation in the city of Nantes (France).
-- Object-Oriented programming in JavaScript and jQuery
-(no plugin used).
-- Different API’s were used : Google Maps API, JCDecaux
-API, Session Storage.
-- Responsive design : CSS3 Media Queries and Bootstrap.
-- Content writting.
+Front-End development : 
+Single page application for bike reservation in the city of Nantes (France).  
+Developed the project with Object-Oriented Programming in JavaScript and jQuery (no plugin used).
+Brought in different API’s: Google Maps API, JCDecaux API, Session & Local storage, Canvas HTML5 API.
+Built the Responsive design with CSS3 Media Queries and Bootstrap. 
+
+Currently finishing the project and writting the page content.
 
 
-------------- In French -----------------------------  
+---------- In French --------  
 
 Formation Développeur/se Web Junior - Projet 3
 
