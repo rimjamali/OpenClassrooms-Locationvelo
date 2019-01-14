@@ -11,9 +11,9 @@ Front-End development :
 Single page application for bike reservation in the city of Nantes (France).  
 Developed the project with Object-Oriented Programming in JavaScript and jQuery (no plugin used).
 Brought in different API’s: Google Maps API, JCDecaux API, Session & Local storage, Canvas HTML5 API.
-Built the Responsive design with CSS3 Media Queries and Bootstrap. 
+Built the responsive design with CSS3 Media Queries and Bootstrap. 
 
-Currently finishing the project and writting the page content.
+Currently finishing the responsive design for the project.
 
 
 ---------- In French --------  
