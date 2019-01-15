@@ -8,10 +8,14 @@ var Reservation = {
     signature: null,
     station: null,
     date: null,
+    countdown: null,
 
     // Méthodes
-    init: function() {
+    init: function(countdown) {
         var self = this;
+
+        this.countdown = countdown
+        
         $('#bouton-reserver').click(function() {
             self.identite.prenom = $('#prenom').val();
             self.identite.nom = $('#nom').val();
@@ -33,15 +37,39 @@ var Reservation = {
          
         
         })
+
+        $('#bouton-confirmer').click(this.completerResa.bind(this))
     },
     
     completerStation: function(station) {
         this.station = station;
-        sessionStorage.setItem('station', JSON.stringify(station))
+        sessionStorage.setItem('station', JSON.stringify(station));
+    },
+
+    completerResa: function() {
+        //$(window).on('beforeunload', function(){
+        sessionStorage.setItem('dateResa', new Date()); 
+        //});
+        
+        $('.message-reservation').toggleClass('message-reservation');
+        this.countdown.start();
+    },
+    
+    terminerResa: function() {
+        if (sessionStorage.clear()) {
+        
+        $('.message-reservation').removeClass('message-reservation'); //ne fonctionne pas
+            
+        };
+        
+    },
+    
+    continuerResa: function() {
+        
     }
-
-
+    
   
 }
+
 
 
