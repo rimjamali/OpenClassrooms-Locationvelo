@@ -14,12 +14,11 @@ var Reservation = {
     init: function(countdown) {
         var self = this;
 
-        this.countdown = countdown
+        this.countdown = countdown;
         
         $('#bouton-reserver').click(function() {
             self.identite.prenom = $('#prenom').val();
             self.identite.nom = $('#nom').val();
-
 
             // Sauvegarder l'identité et la station dans le local storage
             if ((self.identite.prenom === '') || (self.identite.nom === '')) {
@@ -32,13 +31,18 @@ var Reservation = {
                  $('#bouton-reserver').hide();
                  $('#bouton-confirmer').show();  
                 localStorage.setItem('identite', JSON.stringify(self.identite));
-
             }
-         
-        
         })
 
         $('#bouton-confirmer').click(this.completerResa.bind(this))
+
+        if (!!sessionStorage.getItem('station')) { //revoir les deux points d'exclam.
+            // J'ai rafraichi ma page et une résa est en cours
+            var station = JSON.parse(sessionStorage.getItem('station'))
+            $('#station-name').html(station.name)
+            $('#messageResa').removeClass('message-reservation');
+            this.countdown.start();
+        }
     },
     
     completerStation: function(station) {
@@ -47,27 +51,13 @@ var Reservation = {
     },
 
     completerResa: function() {
-        //$(window).on('beforeunload', function(){
+        $('#station-name').html(this.station.name);
         sessionStorage.setItem('dateResa', new Date()); 
-        //});
         
-        $('.message-reservation').toggleClass('message-reservation');
+        
+        $('#messageResa').removeClass('message-reservation');
         this.countdown.start();
-    },
-    
-    terminerResa: function() {
-        if (sessionStorage.clear()) {
-        
-        $('.message-reservation').removeClass('message-reservation'); //ne fonctionne pas
-            
-        };
-        
-    },
-    
-    continuerResa: function() {
-        
     }
-    
   
 }
 
