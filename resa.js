@@ -37,13 +37,19 @@ var Reservation = {
 
 /*
     canvasSignature: function(signature) {
-        this.signature = signature;
+        this.signature = signature
         var self = this;
-        $('')
+        signature = $('.cnvs'); 
+        var ctx = signature.getContext('2d');
+
+        signature.mousedown(function (e){
+
+        });
+        
 
     }
-
- */   
+*/
+  
 }
 
 
