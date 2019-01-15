@@ -20,7 +20,8 @@ var Station = {
                     var marker = mapObj.addMarker(station.position.lat, station.position.lng);
 
                     mapObj.addEvent(marker, 'click', function() {
-                        
+                        $('.message-station').hide();
+                        $('.form-et-bouton').show();
                         $('.label-ligne').show();
                         $('.adresse-station').html(station.address);
                         station.status = (station.status === 'OPEN') ? ' Ouverte' : ' Fermée';
