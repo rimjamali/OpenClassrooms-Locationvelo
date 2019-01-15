@@ -3,13 +3,15 @@ var Maps = {
     // Propriétés
     map: null,
     stations: [],
-
+    reservationObj: null,
 
 
     //Méthode
 
-    init: function () {
+    init: function (reservationObj) {
         var self = this;
+
+        self.reservationObj = reservationObj;
         var options = {
             center: {lat: 47.218371, lng: -1.553621},
             zoom: 13
@@ -92,11 +94,11 @@ var Maps = {
 
             });
 
-    }
+    },
 
     reservationClick: function() {
         var prenom = $('#prenom').val(); //.val takes the element from a form
         var nom = $('#nom').val();
-        self.reservationObj.remplirIdentite(prenom, nom);
+        this.reservationObj.remplirIdentite(prenom, nom);
     }
 }
