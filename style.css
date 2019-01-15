@@ -182,11 +182,9 @@ nav a {
 }
 
 
-
 /*Cadre de reservation*/
-
-form {
-    padding: 20px;    
+.form-et-bouton {
+    display: none;
 }
 
 
@@ -218,7 +216,10 @@ form {
     display: inline-block;
     width: 30%;
     border: 1px solid black;
-    border-radius: 15px; 
+    border-radius: 15px;
+    padding-left: 15px; 
+    padding-right: 15px;
+    padding-bottom: 15px; 
 }
 
 
@@ -228,12 +229,12 @@ form {
     margin-bottom: 10px;
 }
 
-.btn-confirmer{
+.btn-confirmer, .btn-annuler{
     display: none;
 }
 
 
-.btn-reserver, .btn-confirmer {
+.btn-reserver, .btn-confirmer, .btn-annuler {
     bottom: 15px;
     float: right;
     padding: 10px 10px 10px 10px;
@@ -245,7 +246,7 @@ form {
 }
 
 
-.btn-reserver:hover, .btn-confirmer:hover {
+.btn-reserver:hover, .btn-confirmer:hover, btn-annuler:hover {
     background-color: orange;
 }
 
@@ -270,12 +271,23 @@ form {
 }
 
 
-#map {
+#map-et-message {
+    display: flex;
+    flex-direction: column;
     float: right;
-    right: 35px;
-    height: 450px;
+    margin-right: 35px;
     width: 60%;
-    margin-bottom: 50px;
+}
+
+
+#map {
+    height: 450px;
+    margin-bottom: 25px;
+}
+
+
+.message-reservation, .message-fin-reservation {
+    visibility: hidden;
 }
 
 
