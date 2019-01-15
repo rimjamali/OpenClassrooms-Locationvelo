@@ -32,7 +32,7 @@ var Countdown = {
         //var secondesRestantes = 59 - secondesEcoulees
         //var minutesRestantes = 19 - minutesEcoulees
         
-        var secondesRestantes = 35 - secondesEcoulees
+        var secondesRestantes = 05 - secondesEcoulees
         var minutesRestantes = 00 - minutesEcoulees
 
         $('#minutes').html(minutesRestantes)
@@ -41,9 +41,10 @@ var Countdown = {
         if (secondesRestantes === 0 && minutesRestantes === 0) {
             self.clearTimer(); 
             sessionStorage.clear();
-            $('#messageResa').addClass('message-reservation');
-            $('.message-fin-reservation').toggleClass('message-fin-reservation');
-            
+            //$('#messageResa').addClass('message-reservation');
+            //$('.message-fin-reservation').toggleClass('message-fin-reservation'); 
+            $('#messageResa').hide();
+            $('.message-fin-reservation').show();
         }; 
 		
 	} 
