@@ -1,7 +1,7 @@
 $(function() {
     
     var canvasObj = Object.create(Dessin);
-    canvasObj.init();
+    canvasObj.init(countdownObj);
     
     var diapoObj = Object.create(Diaporama);
     diapoObj.initialiser();
