@@ -111,6 +111,14 @@
                 <div class="cadre-de-reservation">   
                     <h2> Détails de la station </h2>
                     <!--voir API web storage + canvas-->
+                    
+                    <div class="affichage-stations">
+                        <div class="adresse-station"></div>
+                        <div class="etat-station"></div>
+                        <div class="velos-disponibles"></div>
+                        <div class="emplacements-libres"></div>
+                    </div>
+                    
                     <form method="post" action="traitement.php"> <!--voir quoi mettre en action-->
                         <p>
 
@@ -124,6 +132,7 @@
 
                         </p>
                     </form>
+                           
                     <button class="btn"> Réserver </button>
                 </div>
                 
@@ -144,6 +153,7 @@
         </footer>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbytexexDIck-3qDDpxltH3zxgYrIn4wU"></script> 
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="../js/diaporama.js"></script>
         <script src="../js/map.js"></script>
