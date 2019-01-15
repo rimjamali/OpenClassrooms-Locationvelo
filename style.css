@@ -229,12 +229,12 @@ nav a {
     margin-bottom: 10px;
 }
 
-.btn-confirmer, .btn-annuler{
+.btn-confirmer{
     display: none;
 }
 
 
-.btn-reserver, .btn-confirmer, .btn-annuler {
+.btn-reserver, .btn-confirmer{
     bottom: 15px;
     float: right;
     padding: 10px 10px 10px 10px;
@@ -246,7 +246,7 @@ nav a {
 }
 
 
-.btn-reserver:hover, .btn-confirmer:hover, btn-annuler:hover {
+.btn-reserver:hover, .btn-confirmer:hover{
     background-color: orange;
 }
 
@@ -287,7 +287,7 @@ nav a {
 
 
 .message-reservation, .message-fin-reservation {
-    visibility: hidden;
+    display: none;
 }
 
 
@@ -317,3 +317,217 @@ footer a {
     transform: translateY(25%);
     right: 10px;
 }
+
+/*-------------------- Nouvelles règles si la fenêtre fait au plus 1024px de large -------------------------------*/
+
+@media screen and (max-width: 1024px)
+{
+}
+
+
+/*-------------------- Nouvelles règles si la fenêtre fait au plus 850px de large -------------------------------*/
+@media screen and (max-width: 850px)
+{
+}
+
+
+/* ---------------------Nouvelles règles si la fenêtre fait au plus 750px de large --------------------------------*/
+@media all and (max-width: 750px)
+
+{
+    /* ---------- HEADER --------- */ 
+    
+    .logo img {
+        height: 100px;
+        left: 15%;
+        margin-top: 30px;
+    }
+
+    
+    /*-------- section 1 ---------*/ 
+    
+    /* Positionner le texte dans les slides */
+
+    
+    .container-slider {
+        position: relative;
+        height: 500px;
+        top: 0px; 
+    }    
+
+    .sliders {
+        height: 450px; 
+        overflow: hidden;
+        position: relative; 
+    }    
+    
+    
+    .slide .texte {
+        position: relative;
+        width: 100%;
+        height: 180px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        text-align: left;
+        padding: 15px 20px;
+    }
+    
+    
+    #texte1 {
+        text-align: center;
+    }
+    
+    
+    .slide .texte h2 {
+        font-size: 19px;
+    }
+
+
+    .slide .texte p {
+        margin-top: 5px;
+        font-size: 15px;    
+    }
+    
+    /*icônes*/
+    
+    .icon {
+    position: absolute; 
+    top: 200px; 
+    /*height: 100px; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;  
+     
+    }
+
+
+    .pause_sign {
+        left: 39%;  
+        color: orange;
+        /*display: none;*/
+    }
+
+
+    .lecture_sign {
+        left: 39%;
+        top: 410px;
+        display: none;
+        color: orange;  
+    }
+
+
+    .prev:hover, .next:hover {
+        color: orange;
+    }
+
+
+    .pause:hover, .lecture:hover {
+        color: orange;
+    }
+ 
+    
+    
+    /* --- section 2 ----*/ 
+    
+     .container-map-and-reservation {
+        position: relative;
+        height: 600px;
+        margin-left: 5%;
+        margin-top: 30px;
+    }
+
+
+    /*Cadre de reservation*/
+    
+    input {
+        border: solid grey 1px;
+        
+    }
+
+
+    .cadre-de-reservation {
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+
+    .btn-reserver, .btn-confirmer, .btn-annuler {
+        bottom: 15px;
+        float: right;
+        padding: 10px 10px 10px 10px;
+        border: 1px solid black;
+        box-shadow: 2px 5px 8px grey;
+        border-radius: 10px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+
+    .btn-reserver:hover, .btn-confirmer:hover, btn-annuler:hover {
+        background-color: orange;
+    }
+
+
+    #message-erreur, #message-signature {
+        margin: 0 10px 22px 5px;
+        display: none;
+    }
+
+
+    #message-erreur {
+        color: red;
+    }
+
+
+    #canvas {
+        border: 1px solid black;
+        left: 10px; 
+        background-color: orange;
+        margin-left: auto;
+        margin-right: auto;
+        display: none; 
+    }
+
+
+    #map-et-message {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        margin-right: 25px;
+        width: 90%;
+    }
+
+    
+    /* ----footer ---- */
+    
+
+    footer {
+        position: relative;
+        margin-bottom: 0px;
+        width: 100%;
+        height: 100px;
+        background-color: #F4F4F4;
+        font-size: 0.8em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+
+    footer a {
+        width: 200px;
+        text-align: center;
+        left: 2%; 
+    }
+
+
+    #copyright {
+        right: 10px;
+    }
+    
+}
+
