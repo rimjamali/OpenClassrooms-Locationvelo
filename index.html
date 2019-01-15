@@ -67,9 +67,9 @@
                     <img class="img-fluid" src="../images/Bicloo-slider4.jpg" alt="première slide vélo de ville"/>
                     
                     <div class="texte col-xs-12" id="texte1">   
-                        <h2 id ="texte1-titre"> Fonctionnement reservation bla bla 1 </h2>
+                        <h2 id ="texte1-titre"> Bienvenue sur Bicloo - La réservation de vélos à Nantes ! </h2>
                 
-                        <p id ="texte1-paragraphe"> Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri. </p> 
+                        <p id ="texte1-paragraphe"> Vous avez besoin d'un vélo de ville ? Reservez-le en ligne directement sur ce site : Nous vous le gardons pendant 20 minutes ! </p> 
                     </div> 
                 </div>    
                     
@@ -77,9 +77,9 @@
                     <img class="img-fluid" src="../images/Bicloo-slider2.jpg" alt="deuxième slide vélo de ville"/>
                     
                     <div class="texte col-xs-12" id="texte2">  
-                        <h2> Fonctionnement reservation bla bla 2 </h2>
+                        <h2> Vite, un vélo ! </h2>
 
-                        <p>  Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri. </p> 
+                        <p> Cliquez sur la station de votre choix à l'aide de la carte ci-dessous. Lorsque les champs Nom et Prénom apparaissent, remplissez les informations correspondantes, puis cliquez sur Reserver. </p> 
                     </div>    
                 </div>    
    
@@ -87,9 +87,9 @@
                     <img class="img-fluid"src="../images/Bicloo-slider5.jpg" alt="troisième slide vélo de ville"/>
                     
                     <div class="texte col-xs-12" id="texte3"> 
-                        <h2> Fonctionnement reservation bla bla 3 </h2>
+                        <h2> Signez, confirmez, c'est reservé ! </h2>
 
-                        <p>  Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri. </p> 
+                        <p>  Un cadre orange apparaît : apposez votre signature puis cliquez sur Confirmer. La réservation est effectuée à votre nom, vous avez désormais 20 minutes pour récupérer votre vélo ! </p> 
                     </div>    
                 </div>
             </div>  
@@ -110,6 +110,7 @@
 
                 <div class="cadre-de-reservation">   
                     <h2> Détails de la station </h2>
+                    <p class="message-station"> Pour commencer, cliquez sur la station de votre choix. </p>
                     <!--voir API web storage + canvas-->
                     
                     <div class="affichage-stations">
@@ -143,16 +144,28 @@
                             </p>
                         </div>
                         <p id="message-erreur"> Merci de remplir les champs Prénom et Nom. </p>
-                        <p id="message-signature"> Pour valider votre réservation, merci de signer dans le cadre ci-dessous avec votre souris ou bien avec votre doigt, puis cliquer de nouveau sur réserver. </p>
+                        <p id="message-signature"> Pour valider votre réservation, merci de signer dans le cadre ci-dessous avec votre souris ou bien avec votre doigt, puis cliquer sur Confirmer. </p>
                         <canvas id="canvas" height="150" width="230"> </canvas>
                         <button class="btn-reserver" id="bouton-reserver"> Réserver </button>
                         <button class="btn-confirmer" id="bouton-confirmer"> Confirmer </button>
+                        <button class="btn-annuler" id="bouton-annuler"> Annuler </button>
                     </div>
                 </div>
                 
-                <div id="map" class="map-container"></div>
+                <div id="map-et-message">
+                    
+                    <div id="map"> </div>
+                   
+                    <div class="message-reservation"> 
+                        <p>Vous avez une réservation en cours à la station <span id="station-name"></span>. <br/>Il vous reste <span id="minutes"></span> minutes et <span id="secondes"></span> secondes pour aller récupérer votre vélo.</p> 
+                    </div> 
+                    <div class="message-fin-reservation">
+                        <p>Vous n'avez plus de reservation en cours. Nous vous remercions d'avoir utiliser les services Bicloo.</p>
+                    </div>    
                 
-            </div> 
+                </div>    
+                
+            </div>
             
             
         </section>
