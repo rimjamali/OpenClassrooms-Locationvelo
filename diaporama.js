@@ -7,23 +7,54 @@ var Diaporama = {
 
     // Méthodes
     initialiser: function() {
-
+     
         var self = this;
 
         this.slides = $('.slide')
 
         // Ecouteurs d'évènements
         $('#flecheGauche').click(function() {
-            console.log('gauche')
             self.tournerDiaporama(1)
         });
+        
         $('#flecheDroite').click(function() {
-            console.log('droite')
             self.tournerDiaporama()
         });
-        $(document).keydown();
+        
+        $(document).keydown(function(e){
+            if(e.keyCode === 37) { //left
+                self.tournerDiaporama(1);
+            } else if (e.keyCode === 39) {
+                self.tournerDiaporama();
+            } 
+        });
 
-        self.lancerDiaporama();
+        self.autoDiaporama();
+        
+        
+        
+        $('.pause').click(function(){ 
+            self.arreterDiaporama();
+        });
+        
+        
+        $('.lecture_sign').click(function(){
+            self.relancerDiaporama(); //fonctionne une fois mais pas plus
+        });
+        
+        
+        //versions mobiles
+        
+        /*
+        
+        $(document).on('pagecreate', '#page1', function(event) { 
+            $('.slide').on('tap', function(event) { 
+                alert('bonjour');
+            }); 
+        });
+        
+        */
+    
     },
 
     tournerDiaporama: function(sensRotation = 0) {
@@ -41,25 +72,39 @@ var Diaporama = {
             this.slideIx = this.slideIx === 0 ? this.slides.length - 1 : this.slideIx - 1;
         }
         
-        // $('.sliders .slide').removeClass('active'); //On cache toutes les slides
-        // $('.sliders .slide:nth-child('+ (this.slideIx + 1) +')').addClass('active');
-        this.slides.removeClass('active');
-        $(this.slides[this.slideIx]).addClass('active');
+        $('.sliders .slide').removeClass('active'); //On cache toutes les slides
+        $('.sliders .slide:nth-child('+ (this.slideIx + 1) +')').addClass('active');
+        //this.slides.removeClass('active');
+       // $(this.slides[this.slideIx]).addClass('active');
     },
 
-    lancerDiaporama: function() {
+    autoDiaporama: function() {
         var self = this
         this.interval = setInterval(function() {
             self.tournerDiaporama();
-        }, 2000)
+        }, 5000)
     },
 
-    arreterDiaporama: function() {
-        clearInterval(this.interval)
+    arreterDiaporama: function(){
+            clearInterval(this.interval);
+            $('.pause_sign').hide(); 
+            $('.lecture_sign').show();
     },
+    
+    relancerDiaporama: function(){
+        var self = this;
+        this.interval = setInterval(self.tournerDiaporama(), 5000) 
+        $('.lecture_sign').hide(); 
+        $('.pause_sign').show();
+    },
+    
+   
 }
 
-
+// function pauseSlider(){
+    
+//     clearInterval(diapoAuto);
+//     $('.container-slider .pause').hide(); // on cache le bouton pause
 
 
 
@@ -149,7 +194,6 @@ var Diaporama = {
 }*/
 
 
-/*faire apparaître la bulle d'info pour dire ) l'utilisateur q'il peut utiliser son clavier*/
  
 
 
