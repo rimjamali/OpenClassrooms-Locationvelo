@@ -2,7 +2,10 @@ var Dessin = {
     
     canvasEl: null,
     context: null,
-    paint: false,
+    isDrawing: false,
+    lastX: null,
+    lastY: null,
+
 
     init: function() {
         var canvasEl = document.getElementById('canvas');
@@ -14,8 +17,8 @@ var Dessin = {
 
         // Init events
 
-        canvasEl.addEventListener('mousedown', this.mousedown.bind(this)) // pourquoi il faut binder alors que ce ne sont pas des propriétés de mon objet ??
-        canvasEl.addEventListener('touchstart', this.mousedown.bind(this)) // pourquoi avec touchstart on bind mousedown ???
+        canvasEl.addEventListener('mousedown', this.mousedown.bind(this)) 
+        canvasEl.addEventListener('touchstart', this.mousedown.bind(this)) 
         canvasEl.addEventListener('mousemove', this.mousemove.bind(this))
         canvasEl.addEventListener('touchmove', this.mousemove.bind(this))
         canvasEl.addEventListener('mouseup', this.mouseup.bind(this))
@@ -24,27 +27,33 @@ var Dessin = {
 
 
      mousedown: function(ev) {
-        [lastX, lastY] = [ev.offsetX, ev.offsetY];
+    
+        this.lastX = ev.offsetX;
+        this.lastY = ev.offsetY;
+        this.isDrawing = true;
         console.log('mouse down');
     },
 
 
     mousemove: function(ev) {
-       
         var self = this;
         console.log('mouse move')
         
+        if (this.isDrawing === true) {
         self.context.beginPath();
-        self.context.moveTo(lastX, lastY);
+        self.context.moveTo(this.lastX, this.lastY);
         self.context.lineTo(ev.offsetX, ev.offsetY);
         self.context.stroke();
-        [lastX, lastY] = [ev.offsetX, ev.offsetY];   
+        this.lastX = ev.offsetX;
+        this.lastY = ev.offsetY; 
+        }
     },
 
 
     mouseup: function(ev) {
         var self = this;
         console.log('mouse up');  
+        self.isDrawing = false;
         
 
         
