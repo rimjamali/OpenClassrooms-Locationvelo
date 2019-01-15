@@ -9,12 +9,15 @@ var Reservation = {
     station: null,
     date: null,
     countdown: null,
+    canvas: null,
 
     // Méthodes
-    init: function(countdown) {
+    init: function(countdown, canvas) {
         var self = this;
 
         this.countdown = countdown;
+
+        this.canvas = canvas;
         
         $('#bouton-reserver').click(function() {
             self.identite.prenom = $('#prenom').val();
@@ -25,6 +28,8 @@ var Reservation = {
                  $('#message-erreur').show(); 
                  $('#canvas').hide();
             } else {
+                canvas.init(); // mettre un this ???
+
                  $('#message-erreur').hide(); 
                  $('#message-signature').show();
                  $('#canvas').show();
@@ -36,11 +41,13 @@ var Reservation = {
 
         $('#bouton-confirmer').click(this.completerResa.bind(this))
 
-        if (!!sessionStorage.getItem('station')) { //revoir les deux points d'exclam.
+        if (!!sessionStorage.getItem('station') && !!sessionStorage.getItem('dateResa')) { 
             // J'ai rafraichi ma page et une résa est en cours
-            var station = JSON.parse(sessionStorage.getItem('station'))
-            $('#station-name').html(station.name)
-            $('#messageResa').removeClass('message-reservation');
+            var station = JSON.parse(sessionStorage.getItem('station'));
+            $('#station-name').html(station.name);
+            /*$('#messageResa').removeClass('message-reservation');*/
+            $('#messageResa').show();
+            $('.message-fin-reservation').hide();
             this.countdown.start();
         }
     },
@@ -51,12 +58,18 @@ var Reservation = {
     },
 
     completerResa: function() {
-        $('#station-name').html(this.station.name);
-        sessionStorage.setItem('dateResa', new Date()); 
         
-        
-        $('#messageResa').removeClass('message-reservation');
-        this.countdown.start();
+        if (!this.canvas.isEmpty()) {
+            $('#station-name').html(this.station.name);
+            sessionStorage.setItem('dateResa', new Date()); 
+            
+            /*$('#messageResa').removeClass('message-reservation');*/
+            $('#messageResa').show();
+            $('.message-fin-reservation').hide();
+            this.countdown.start();
+        } else {
+            $('#message-signature').css('color', 'red');
+        }
     }
   
 }
