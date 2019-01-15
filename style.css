@@ -196,9 +196,16 @@ form {
 }
 
 
-.adresse-station, .etat-station, .velos-disponibles, .emplacements-libres {
+.affichage-stations {
     margin-left: 22px;
     margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+.label-ligne {
+    display: none;
+    float: left;
 }
 
 
@@ -285,5 +292,3 @@ footer a {
     transform: translateY(25%);
     right: 10px;
 }
-
-
