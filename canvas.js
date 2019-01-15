@@ -5,6 +5,7 @@ var Dessin = {
     isDrawing: false,
     lastX: null,
     lastY: null,
+    countdown: null,
 
 
     init: function() {
@@ -27,18 +28,14 @@ var Dessin = {
 
 
      mousedown: function(ev) {
-    
         this.lastX = ev.offsetX;
         this.lastY = ev.offsetY;
         this.isDrawing = true;
-        console.log('mouse down');
     },
 
 
     mousemove: function(ev) {
         var self = this;
-        console.log('mouse move')
-        
         if (this.isDrawing === true) {
         self.context.beginPath();
         self.context.moveTo(this.lastX, this.lastY);
@@ -51,11 +48,29 @@ var Dessin = {
 
 
     mouseup: function(ev) {
-        var self = this;
-        console.log('mouse up');  
+        var self = this; 
         self.isDrawing = false;
-        
+        this.lastX = null;
+        this.lastY = null;
+    },
 
+    isEmpty: function() {
+        var self = this;
+        return !this.lastX || !this.lastY
         
+        if ($('#bouton-confirmer').click()){
+            $('#message-signature').css('color', 'red');
+            !self.start;
+        };
+        
+        /*
+        // Avec le premier point d'exclamation, on vérifie si la variable est vide ou non. ça renvoie true si la variable est vide, false sinon.
+        // Avec le second, on inverse le résultat. Donc si la variable est vide, ca renvoie false sinon true.
+        if (!!this.lastX && !!this.lastY) {
+            return false
+        } else {
+            return true
+        }
+        */
     }
 }
