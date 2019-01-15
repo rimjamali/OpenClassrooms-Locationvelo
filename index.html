@@ -142,13 +142,15 @@
 
                             </p>
                         </form>
-
-                        <button class="btn"> Réserver </button>
+                        <p id="message-erreur"> Merci de remplir les champs Prénom et Nom. </p>
+                        <p id="message-signature"> Pour valider votre réservation, merci de signer dans le cadre ci-dessous avec votre souris ou bien avec votre doigt, puis cliquer de nouveau sur réserver. </p>
+                        <button class="btn" id="bookingBtn"> Réserver </button>
+                        <canvas class="cnvs" id="canvas-click"> </canvas>
                     </div>
                 </div>
                 
                 <div id="map" class="map-container"></div>
-                <div class="canvas"> </div>
+                
             </div> 
             
             
@@ -166,11 +168,16 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbytexexDIck-3qDDpxltH3zxgYrIn4wU"></script> 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../js/diaporama.js"></script>
+        <!-- <script src="../js/diaporama.js"></script>
         <script src="../js/map.js"></script>
-        <!-- <script src="../stations.js"></script> -->
+         <script src="../stations.js"></script>
          <script src="../reservation.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="../js/main.js"></script> -->
+        <script src="../POO/diapo.js"></script>
+        <script src="../POO/map.js"></script>
+        <script src="../POO/resa.js"></script>
+        <script src="../POO/station.js"></script>
+        <script src="../POO/main.js"></script>
 
     </div> 
     
