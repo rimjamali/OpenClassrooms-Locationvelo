@@ -21,16 +21,28 @@ var Diaporama = {
             self.tournerDiaporama()
         });
         
-        $(document).keydown(function(e){
-            if(e.keyCode === 37) { //left
-                self.tournerDiaporama(1);
-            } else if (e.keyCode === 39) {
-                self.tournerDiaporama();
-            } 
-        });
+        $(document).keydown(this.keydownHandler.bind(this));
+
+        /*
+         * Pour le contexte : quand on entre dans un nouveau bloc d'accolades, on perd le contexte parent (le this)
+         * Pour retrouver le contexte parent, 2 solutions :
+         *  - On est dans la fonction : dans ce cas on sauvegarde le contexte parent dans une varible (var self = this) et on 
+         * utilise le self
+         *  - On est hors de la fonction : dans ce cas on utilise la fonction bind pour transférer le contexte à la fonction 
+         * appelée (this.nomFct.bind(this))
+         */
 
         self.autoDiaporama();
         
+        /*
+        $(this.slides).mouseenter(function(){
+            $('.pause').show();
+        });
+        
+        $(this.slides).mouseleave(function(){
+            $('.pause').hide();
+        });
+        */
         
         
         $('.pause').click(function(){ 
@@ -39,7 +51,7 @@ var Diaporama = {
         
         
         $('.lecture_sign').click(function(){
-            self.relancerDiaporama(); //fonctionne une fois mais pas plus
+            self.relancerDiaporama();
         });
         
         
@@ -57,7 +69,37 @@ var Diaporama = {
     
     },
 
+    keydownHandler: function(e) {
+        var self = this
+        switch(e.keyCode) {
+            case 37: // LEFT
+                this.tournerDiaporama(1);
+                break;
+            case 39: // RIGHT
+                this.tournerDiaporama(0);
+                break;
+            // case xx: // SPACE
+            //     if (!this.interval) {
+            //         // Lancer diapo
+            //         this.autoDiaporama().bind(self)
+            //     } else {
+            //         clearInterval(this.interval)
+            //     }
+            //     break;
+            default:
+                break;
+        }
+
+        // if(e.keyCode === 37) { //left
+        //     this.tournerDiaporama(1);
+        // } else if (e.keyCode === 39) {
+        //     this.tournerDiaporama();
+        // } 
+    },
+
     tournerDiaporama: function(sensRotation = 0) {
+
+        //console.log('this.slideIx: ', this.slideIx)
 
         if (sensRotation === 0) {
             // this.slideIx = this.slideIx === this.slides.length - 1 ? 0 : this.slideIx + 1;
@@ -92,108 +134,16 @@ var Diaporama = {
     },
     
     relancerDiaporama: function(){
-        var self = this;
-        this.interval = setInterval(self.tournerDiaporama(), 5000) 
+        var self = this
+        this.autoDiaporama();
+        // this.interval = setInterval(function() {
+        //     self.tournerDiaporama()
+        // }, 5000) 
         $('.lecture_sign').hide(); 
         $('.pause_sign').show();
     },
     
    
 }
-
-// function pauseSlider(){
-    
-//     clearInterval(diapoAuto);
-//     $('.container-slider .pause').hide(); // on cache le bouton pause
-
-
-
-//faire un tableau d'objet ici 
-
-
-// var imgItems = $('.sliders .slide').length;
-// console.log(imgItems);
-
-// var imgPosition = 1; // lorsque la page se charge, le slider est en position 1 - première image.
-
-
-// //-----------------
-// $('.sliders .slide').hide(); //on cache toutes les slides
-// $('.sliders .slide:first').show(); // on montre juste la première
-
-
-// // on execute toutes les fonctions 
-// $('.next').click(nextSlider); 
-// $('.prev').click(prevSlider); 
-
-
-// var diapoAuto = setInterval(function(){
-//                 nextSlider();
-//             }, 5000);
-
-
-// $('.pause').click(pauseSlider);
-
-// /*$('document').keypress(keyboard);*/
-
-
-
-// //FONCTIONS ====================================
-
-// function nextSlider(){
-//     if(imgPosition >= imgItems) {
-//         imgPosition = 1;
-//        } else {
-//            imgPosition++;
-//        }
-    
-//     $('.sliders .slide').hide(); //On cache toutes les slides
-//     $('.sliders .slide:nth-child('+ imgPosition +')').fadeIn();
-// }
-
-// function prevSlider(){
-//     if(imgPosition <= 1) {
-//         imgPosition = imgItems;
-//        } else {
-//            imgPosition--;
-//        }
-    
-//     $('.sliders .slide').hide(); //On cache toutes les slides
-//     $('.sliders .slide:nth-child('+ imgPosition +')').fadeIn();
-// }
-
-
-// function pauseSlider(){
-    
-//     clearInterval(diapoAuto);
-//     $('.container-slider .pause').hide(); // on cache le bouton pause
-    
-//     $('.container-slider').append('<span class="icon lecture fas fa-chevron-circle-right fa-5x"></span>'); //on rajout le bouton lecture
-    
-//     $('.lecture').click(lectureSlider); /*on déclare la prochaine fonction avec l'élément que l'on vient de créer*/
-// }
-
-
-// function lectureSlider(){
-    
-//     $('.container-slider .lecture').hide(); //si clic sur lecture, on cache le bouton 
-    
-//     $('.container-slider .pause').show(); //et on montre le bouton pause
-    
-//     diapoAuto = setInterval('nextSlider()', 5000) //la diapo repart mais voir soucis 
-//  }   
-
-
-/*function keyboard(e) {
-        if(e.which === 39){
-            alert('bonjour');
-        } else if (e.which === 37) {
-            alert('bonjour');
-        }  
-     e.preventDefault();
-}*/
-
-
- 
 
 
