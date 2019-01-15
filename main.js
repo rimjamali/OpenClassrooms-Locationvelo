@@ -1,8 +1,5 @@
 $(function() {
-    
-    var canvasObj = Object.create(Dessin);
-    canvasObj.init(countdownObj);
-    
+
     var diapoObj = Object.create(Diaporama);
     diapoObj.initialiser();
 
@@ -11,8 +8,11 @@ $(function() {
 
     var countdownObj = Object.create(Countdown);
 
+    var canvasObj = Object.create(Dessin);
+    canvasObj.init();
+
     var resaObj = Object.create(Reservation);
-    resaObj.init(countdownObj);
+    resaObj.init(countdownObj, canvasObj);
 
     var stationObj = Object.create(Station);
     stationObj.init(mapObj, resaObj);
