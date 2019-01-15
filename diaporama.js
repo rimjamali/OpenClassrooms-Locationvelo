@@ -146,4 +146,3 @@ var Diaporama = {
    
 }
 
-
