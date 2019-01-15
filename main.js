@@ -5,5 +5,6 @@ $(function() {
     
    var mapsObj = Object.create(Maps);
    mapsObj.init();
-
+    
 })
+
