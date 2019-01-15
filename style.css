@@ -102,9 +102,10 @@ nav a {
 .slide .texte {
     position: absolute;
     width: 100%;
-    height: 100%; 
-    top: 0;
+    height: 180px;
+    bottom: 0;
     left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -123,26 +124,8 @@ nav a {
 
 .slide .texte p {
     margin-top: 10px;
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
-/* Positionner le texte dans les slides */
-
-
-/*#texte1 {
-    
-    height: 400px;
-    width: 400px;;
-    background-color:rgba(255, 190, 13, 0.9);
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px black;
-    position: absolute;
-    top: 70px;
-    right: 9%;
-    padding: 5px 10px 0px 10px;
-    z-index: 1;
-}*/
 
 
 .icon {
@@ -150,48 +133,49 @@ nav a {
     top: 0;
     height: 100%;
     display: flex;
-    align-items:flex-end;
-    padding-bottom: 20px;
+    align-items: center;
     z-index: 2;
-    color: #fff;
     cursor: pointer;  
 }
 
 
 .pause_sign {
     position: absolute;
-   
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50px);
+    left: 50%; 
+    color: #fff;
+    /*display: none;*/
 }
+
 
 .lecture_sign {
     position: absolute;
     left: 50%;
-    top: 500px;
-   width: 100%;
-     transform: translateX(-50px);
-    display: none;  
-   
+    top: 260px;
+    display: none;
+    color: #fff;  
 }
 
 
 .fleche_gauche {
-    left: 41%;
+    left: 2%;
+    color: orange;
 }
 
 
 .fleche_droite {
-    right: 41%; 
-    transform: translateX(-25px);
-}
-
-
-.pause:hover, .prev:hover, .next:hover, .lecture:hover {
+    right: 2%; 
     color: orange;
 }
 
+
+.prev:hover, .next:hover {
+    color: #fff;
+}
+
+
+.pause:hover, .lecture:hover {
+    color: orange;
+}
 
 /*--------------------Section 2------------------*/
 .container-map-and-reservation {
@@ -287,8 +271,6 @@ footer a {
     transform: translateY(25%);
     right: 10px;
 }
-
-
 
 
 
