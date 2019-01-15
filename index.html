@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-
 <html>
 <head>    
     <title> Carte intéractive de location de vélos </title>
     <meta charset="utf-8">
-    <meta name="description" content="La ville de Nantes vous rend la vie plus facile avec la reservation des vélos Bicloo en ligne, à l'avance ou en temps réel !">
+    <meta name="description" content="La ville de Nantes vous rend la vie plus facile avec la reservation des vélos Bicloo en ligne en temps réel !">
     <meta name="author" content="RimJamali">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Carte interactive, location vélo Nantes, location vélo en ligne, vélos Nantes">
@@ -12,7 +10,7 @@
     
 	<!-- Typographie et icônes -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!-- <link rel="icon" href="images/ico/favicon.ico"> -->
+    <link rel="icon" href="../images/favicon.ico">
     
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -32,22 +30,26 @@
         
             <header class="col-sm-12">
               
-                  <div class="logo"> <!--mettre le h1 dans le logo-->	
+                  <div class="logo"> 	
                      <h1><img src="../images/Logo_bicloo.gif" alt="logo de bicloo" /> </h1>
                   </div>
-                
-                
-                     <nav>
-                    <ul id= "menu">
-                     <!--<div class="menu-hamburger fa fa-bars fa-2x"></div> voir si j'en ai besoin avec bootstrap--> 
+                  <div id="hamburger">
+                      <div id="hamburger-content">
+                           <nav>
+                            <ul id= "menu">
+                                <li> <a href = "#section1"> Service </a></li>
+                                <li> <a href = "#container-section2"> Carte et reservation </a></li>			
+                             </ul>   
+                          </nav>
+                     </div>
 
-                        <li> <a href = "#"> Service </a></li>
-                        <li> <a href = "#"> Comment ça marche </a></li>
-                        <li> <a href = "#"> Bicloo au quotidien </a></li>
-                         <li> <a href = "#"> Réserver en ligne </a></li>			
-                     </ul>   
-                    </nav>
-                
+                     <button id="bouton-hamburger">&#9776;</button> 
+                     <div id="hamburger-sidebar">
+                        <div id="hamburger-sidebar-content"></div>
+                     </div>
+                    <div id="hamburger-overlay"></div>  
+                </div>   
+            
             </header>
         </div>
         
@@ -78,9 +80,7 @@
                     <img class="img-fluid" src="../images/Bicloo-slider2.jpg" alt="deuxième slide vélo de ville"/>
                     
                     <div class="texte" id="texte2">  
-                        
-
-                        <p> 1 - Cliquez sur la station de votre choix sur la carte. <br />
+                        <p> 1 - Cliquez sur la station de votre choix sur la carte. <br /> 
                         2 - Remplissez votre nom et prénom. <br /> 
                         3- Cliquez sur Reserver. </p> 
                     </div>    
@@ -90,10 +90,8 @@
                     <img class="img-fluid"src="../images/Bicloo-slider5.jpg" alt="troisième slide vélo de ville"/>
                     
                     <div class="texte" id="texte3"> 
-                  
-
-                        <p>  1 - Signez dans le cadre qui apparaît. <br />
-                             2 - Cliquez sur Confirmer. <br />
+                        <p>  1 - Signez dans le cadre qui apparaît. <br /> 
+                             2 - Cliquez sur Confirmer. <br /> 
                              3 - Vous avez 20 minutes pour récupérer votre vélo ! </p> 
                     </div>    
                 </div>
@@ -111,12 +109,11 @@
         </section>
 
         <section id="section2">
-            <div class="container-map-and-reservation">   
+            <div class="container-map-and-reservation" id="container-section2">   
 
                 <div class="cadre-de-reservation">   
                     <h2> Détails de la station </h2>
                     <p class="message-station"> Pour commencer, cliquez sur la station de votre choix. </p>
-                    <!--voir API web storage + canvas-->
                     
                     <div class="affichage-stations">
                         <div class="label-ligne"> Adresse :&nbsp</div>
@@ -186,6 +183,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbytexexDIck-3qDDpxltH3zxgYrIn4wU"></script> 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../POO/menu-hamburger.js"></script>
         <script src="../POO/diapo.js"></script>
         <script src="../POO/map.js"></script>
         <script src="../POO/resa.js"></script>
@@ -193,6 +191,7 @@
         <script src="../POO/canvas.js"></script>
         <script src="../POO/countdown.js"></script>
         <script src="../POO/main.js"></script>
+        
 
     </div> 
     
