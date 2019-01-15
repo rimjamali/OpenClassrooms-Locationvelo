@@ -1,9 +1,12 @@
 $(function() {
     
+    var canvasObj = Object.create(Dessin);
+    canvasObj.init()
+    
     var diapoObj = Object.create(Diaporama);
     diapoObj.initialiser();
 
-    var mapObj = Object.create(Maps);
+    var mapObj = Object.create(Carte);
     mapObj.init();
 
     var resaObj = Object.create(Reservation);
