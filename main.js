@@ -9,13 +9,13 @@ $(function() {
     var mapObj = Object.create(Carte);
     mapObj.init();
 
+    var countdownObj = Object.create(Countdown);
+
     var resaObj = Object.create(Reservation);
-    resaObj.init();
+    resaObj.init(countdownObj);
 
     var stationObj = Object.create(Station);
     stationObj.init(mapObj, resaObj);
 
-    var countdownObj = Object.create(Countdown);
-    countdownObj.init();
 
 })
