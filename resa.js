@@ -18,15 +18,16 @@ var Reservation = {
 
             // Sauvegarder l'identité et la station dans le local storage
             if ((self.identite.prenom === '') || (self.identite.nom === '')) {
-                $('#message-erreur').show(); 
-                $('#canvas-click').hide();
+                 $('#message-erreur').show(); 
+                 $('#canvas').hide();
             } else {
-                $('#message-erreur').hide(); 
-                $('#message-signature').show();
-                $('#canvas-click').show();
+                 $('#message-erreur').hide(); 
+                 $('#message-signature').show();
+                 $('#canvas').show();
                 localStorage.setItem('identite', JSON.stringify(self.identite));
             }
 
+        
         })
     },
     
@@ -35,20 +36,7 @@ var Reservation = {
         sessionStorage.setItem('station', JSON.stringify(station))
     }
 
-/*
-    canvasSignature: function(signature) {
-        this.signature = signature
-        var self = this;
-        signature = $('.cnvs'); 
-        var ctx = signature.getContext('2d');
 
-        signature.mousedown(function (e){
-
-        });
-        
-
-    }
-*/
   
 }
 
