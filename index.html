@@ -113,27 +113,38 @@
                     <!--voir API web storage + canvas-->
                     
                     <div class="affichage-stations">
+                        <div class="label-ligne"> Adresse :&nbsp</div>
                         <div class="adresse-station"></div>
+
+
+                        <div class="label-ligne"> État de la station :&nbsp</div>
                         <div class="etat-station"></div>
+
+
+                        <div class="label-ligne"> Vélos disponibles :&nbsp</div>
                         <div class="velos-disponibles"></div>
+
+                        <div class="label-ligne"> Emplacements libres :&nbsp</div>
                         <div class="emplacements-libres"></div>
                     </div>
-                    
-                    <form method="post" action="traitement.php"> <!--voir quoi mettre en action-->
-                        <p>
 
-                            <label for="prenom">Prénom</label>
-                            <input type="text" name="prenom" id="prenom" />
-                            <br/>
-                            
+                    <div class="form-et-bouton">
+                        <form method="post" action="traitement.php"> <!--voir quoi mettre en action-->
+                            <p>
 
-                             <label for="nom">Nom</label>
-                            <input type="text" name="nom" id="nom" />
+                                <label for="prenom">Prénom</label>
+                                <input type="text" name="prenom" id="prenom" />
+                                <br/>
 
-                        </p>
-                    </form>
-                           
-                    <button class="btn"> Réserver </button>
+
+                                 <label for="nom">Nom</label>
+                                <input type="text" name="nom" id="nom" />
+
+                            </p>
+                        </form>
+
+                        <button class="btn"> Réserver </button>
+                    </div>
                 </div>
                 
                 <div id="map" class="map-container"></div>
@@ -157,6 +168,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="../js/diaporama.js"></script>
         <script src="../js/map.js"></script>
+        <!-- <script src="../stations.js"></script> -->
+         <script src="../reservation.js"></script>
         <script src="../js/main.js"></script>
 
     </div> 
