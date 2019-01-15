@@ -178,7 +178,8 @@ nav a {
 /*--------------------Section 2------------------*/
 .container-map-and-reservation {
     position: relative;
-    height: 500px;
+    height: 600px;
+    
     margin-left: 5%;
     margin-top: 30px;
     display: flex;  
@@ -253,9 +254,25 @@ form {
 }
 
 
-/*canvas*/
+#message-erreur, #message-signature {
+    margin-left: 22px;
+    margin-right: 10px;
+    display: none;
+}
 
 
+#message-erreur {
+    color: red;
+}
+
+
+.cnvs {
+    border: 1px solid black;
+    height: 110px;
+    width: 50%;
+    background-color: orange;
+    display: none;
+}
 
 
 #map {
@@ -292,3 +309,9 @@ footer a {
     transform: translateY(25%);
     right: 10px;
 }
+
+
+
+
+
+
