@@ -11,7 +11,6 @@ var Station = {
 
         $.getJSON('https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=453628a242d0db7b1d2972afa3421f5460dddc0d')
             .done(function(data) {
-                console.log('reponse jcdecaux: ', data);
                 self.stations = data;
 
                 // Afficher les stations sur la carte
