@@ -3,30 +3,32 @@ var Maps = {
     // Propriétés
     map: null,
     stations: [],
-   
-    
-    
-    //Méthode 
-    
+
+
+
+    //Méthode
+
     init: function () {
         var self = this;
         var options = {
             center: {lat: 47.218371, lng: -1.553621},
-            zoom: 13   
+            zoom: 13
         };
 
         var element = $('#map')[0]; /* 0 signifie qu'on passe l'élément en html au lieu de jquery : correspond à getElementById */
         this.map = new google.maps.Map(element, options);
-        
-        
-    
+
+
+
         this.recupererStations();
-        
-            
+
+        this.reservationClick();
+
+
     },
-    
+
 //----------- fonctions -----------
-    
+
     recupererStations: function() {
         var self = this;
 
@@ -43,44 +45,58 @@ var Maps = {
                     });
 
                     marker.addListener('click', function() {
-                        
-                        
-                        $('.adresse-station').append('Adresse : ' + station.address);
-                        
-                         
+
+                        $('.label-ligne').show();
+
+                        $('.adresse-station').html(station.address);
+
+
+                        station.status = (station.status === 'OPEN') ? ' Ouverte' : ' Fermée';
+                        /*
                         if (station.status === 'OPEN'){
                             station.status = ' Ouverte';
-                        } else if (station.status === 'CLOSED') {  
+                        } else if (station.status === 'CLOSED') {
                             station.status = ' Fermée';
                         }
-                        $('.etat-station').append('État de la station : '+ station.status);
-    
-                        
-                        $('.velos-disponibles').append('Vélos disponibles : ' + station.available_bikes);
-                        
-                        $('.emplacements-libres').append('Emplacements libres : ' + station.available_bike_stands);
-                        
+                        */
+
+                        $('.etat-station').html( station.status);
+
+                        $('.velos-disponibles').html(station.available_bikes);
+
+                        $('.emplacements-libres').html(station.available_bike_stands);
+
+                        //station.available_bikes = (station.available_bikes === 0) ? '$('.form-et-bouton').hide() : $('.form-et-bouton').show()';
+
+                        if ((station.available_bikes === 0) || (station.status === 'CLOSED')) {
+                            $('.form-et-bouton').hide();
+                        } else {
+                            $('.form-et-bouton').show();
+                        }
+
+
                         //alert('Clic sur la station "' + station.name + '"');
-                     
+
                     });
-                    
-                    
 
                     markers.push(marker);
-                    
-                
-                     
+
+
                 });
 
                 var markerCluster = new MarkerClusterer(self.map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             })
-        
+
             .fail(function(err) {
                 console.log('erreur: ', err)
-    
+
             });
 
     }
 
-
+    reservationClick: function() {
+        var prenom = $('#prenom').val(); //.val takes the element from a form
+        var nom = $('#nom').val();
+        self.reservationObj.remplirIdentite(prenom, nom);
+    }
 }
