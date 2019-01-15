@@ -21,7 +21,7 @@ html, body {
 
 h2, p, nav a {
  font-family: "acherusgrotesque-regular", "arial";
-}
+} 
 
 
 /*HEADER*/
@@ -66,7 +66,6 @@ nav a {
 	text-decoration: none;
 }
 
-
 /*-------------Section 1 : SLIDER---------------------*/
 
 .container-slider {
@@ -91,8 +90,7 @@ nav a {
 
 .active {
     display: block;
-}
-
+} 
 
 /* Positionner le texte dans les slides */
 
@@ -176,24 +174,19 @@ nav a {
 
 
 /*--------------------Section 2------------------*/
-.container-map-and-reservation {
+ .container-map-and-reservation {
     position: relative;
     height: 600px;
-    
     margin-left: 5%;
     margin-top: 30px;
-    display: flex;  
 }
 
 
 
 /*Cadre de reservation*/
 
-
-
-
 form {
-    padding: 20px;     
+    padding: 20px;    
 }
 
 
@@ -222,8 +215,8 @@ form {
 
 
 .cadre-de-reservation {
-    position: absolute;
-    width: 35%;
+    display: inline-block;
+    width: 30%;
     border: 1px solid black;
     border-radius: 15px; 
 }
@@ -235,11 +228,14 @@ form {
     margin-bottom: 10px;
 }
 
+.btn-confirmer{
+    display: none;
+}
 
-.btn {
-    position: relative;
+
+.btn-reserver, .btn-confirmer {
     bottom: 15px;
-    left: 75%;
+    float: right;
     padding: 10px 10px 10px 10px;
     border: 1px solid black;
     box-shadow: 2px 5px 8px grey;
@@ -249,14 +245,13 @@ form {
 }
 
 
-.btn:hover {
+.btn-reserver:hover, .btn-confirmer:hover {
     background-color: orange;
 }
 
 
 #message-erreur, #message-signature {
-    margin-left: 22px;
-    margin-right: 10px;
+    margin: 0 10px 22px 5px;
     display: none;
 }
 
@@ -266,22 +261,23 @@ form {
 }
 
 
-.cnvs {
+#canvas {
     border: 1px solid black;
-    height: 110px;
-    width: 50%;
+    left: 10px; 
     background-color: orange;
-    display: none;
+    display: inline-block;
+    display: none; 
 }
 
 
 #map {
-    position: absolute;
-    right: 2%;
+    float: right;
+    right: 35px;
     height: 450px;
     width: 60%;
     margin-bottom: 50px;
 }
+
 
 /* -------------------- Footer --------*/
 
@@ -309,4 +305,3 @@ footer a {
     transform: translateY(25%);
     right: 10px;
 }
-
