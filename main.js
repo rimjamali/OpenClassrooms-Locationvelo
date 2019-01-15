@@ -1,4 +1,4 @@
- $(function() {
+$(function() {
     
     var diapoObj = Object.create(Diaporama);
     diapoObj.initialiser();
@@ -13,6 +13,8 @@
    // stationObj.recupererStations(mapsObj, reservationObj);
 
 });
+
+
 
 
 
