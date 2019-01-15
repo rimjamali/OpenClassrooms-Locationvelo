@@ -22,96 +22,65 @@ var Maps = {
     
         this.recupererStations();
         
-        //this.afficherMarqueurs(); 
             
     },
     
 //----------- fonctions -----------
     
     recupererStations: function() {
-         $.getJSON("https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=453628a242d0db7b1d2972afa3421f5460dddc0d")
+        var self = this;
+
+        $.getJSON("https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=453628a242d0db7b1d2972afa3421f5460dddc0d")
             .done(function(data) {
-                this.stations = data;
-                console.log('reponse jcdecaux: ', data)
-             
+                console.log('reponse jcdecaux: ', data);
+                self.stations = data;
+
+                var markers = [];
+                self.stations.forEach(function(station) {
+                    var marker = new google.maps.Marker({
+                        map: self.map,
+                        position: station.position
+                    });
+
+                    marker.addListener('click', function() {
+                        
+                        
+                        $('.adresse-station').append('Adresse : ' + station.address);
+                        
+                         
+                        if (station.status === 'OPEN'){
+                            station.status = ' Ouverte';
+                        } else if (station.status === 'CLOSED') {  
+                            station.status = ' Fermée';
+                        }
+                        $('.etat-station').append('État de la station : '+ station.status);
+    
+                        
+                        $('.velos-disponibles').append('Vélos disponibles : ' + station.available_bikes);
+                        
+                        $('.emplacements-libres').append('Emplacements libres : ' + station.available_bike_stands);
+                        
+                        //alert('Clic sur la station "' + station.name + '"');
+                     
+                    });
+                    
+                    
+
+                    markers.push(marker);
+                    
+                
+                     
+                });
+
+                var markerCluster = new MarkerClusterer(self.map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             })
         
             .fail(function(err) {
                 console.log('erreur: ', err)
     
-            })
-            
-            /*var stations = this.stations;
-            
-            var marker = new google.maps.Marker({
-           
-                reponsejcdecaux.forEach(function(i, data){
-                    position: stations.location[i],
-                    available: stations.available_bikes[i],
-                    map : this.map
-            }); 
-            
-          
-        });*/
-        
-        
-            /*var stations = this.stations;
-            stations.forEach(function(i, data) {
-            var location = new google.maps.LatLng(stations.lat, stations.lng);
-            var marker = new google.maps.Marker({
-                position: stations.location[i],
-                title: stations.available_bikes[i],
-                map: this.map
-            })
-        });*/
-        
-        
-        /*var stations = this.stations;
-            stations.forEach(function(i){
-                data.available_bikes[i];
-                var stationVelo = this.stations[x];
-            var location = new google.maps.LatLng(stationVelo.lat, stationVelo.lng);
-            var marker = new google.maps.Marker({
-                position: location,
-                title: stationVelo.name,
-                map: this.map
-            }); */
-        
-        /*for each (i=0; i < blabla)
-        console.log('reponse jcdecaux'.name);
-        reponse jcdecaux.availablebike [i];
-        udemy json ajax */
-        
-    },
-    
-   
-    
-   /* afficherMarqueurs: function() {
-        for (var x in this.stations) {
-            var stationVelo = this.stations[x];
-            var location = new google.maps.LatLng(stationVelo.lat, stationVelo.lng);
-            var marker = new google.maps.Marker({
-                position: location,
-                title: stationVelo.name,
-                map: this.map
             });
-        }
-    },
- */
-      afficherMarqueurs: function() { 
-          
-           window.eqfeed_callback = function(recupererStations) {
-            for (var i = 0; i < recupererStations.features.length; i++) {
-              var coords = recupererStations.features[i].geometry.coordinates;
-              var latLng = new google.maps.LatLng(coords[1],coords[0]);
-              var marker = new google.maps.Marker({
-                position: latLng,
-                map: map
-              });
-            }
-        }
-    },
+
+    }
+
+
 }
-
-
-
