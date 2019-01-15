@@ -1,5 +1,4 @@
 
-
 var Station = {
 
     stations: [],
@@ -54,4 +53,5 @@ var Station = {
         self.reservationObj.remplirIdentite(prenom, nom)
     }
 }
+
 
